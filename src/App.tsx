@@ -18,10 +18,6 @@ export const App: React.FC = () => {
   const [tempTodo, setTempTodo] = useState<Todo | null>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
-  function handleTodoCompleteChange(todoId: number, completed: boolean) {
-
-  }
-
   function getFilteredTodos(): Todo[] {
     switch (filterType) {
       case 'all':
@@ -161,12 +157,13 @@ export const App: React.FC = () => {
                 className={cn('todo', todo.completed && 'completed')}
                 key={todo.id}
               >
+                {/* eslint-disable-next-line jsx-a11y/label-has-associated-control  */}
                 <label
                   className="todo__status-label"
                   htmlFor={`todo-status-${todo.id}`}
                 >
                   <input
-                    onChange={() => {handleTodoCompleteChange(todo.id, !todo.completed)}}
+                    onChange={() => {}}
                     data-cy="TodoStatus"
                     type="checkbox"
                     className="todo__status"
@@ -234,12 +231,13 @@ export const App: React.FC = () => {
             className={cn('todo', tempTodo.completed && 'completed')}
             key={tempTodo.id}
           >
+            {/* eslint-disable-next-line jsx-a11y/label-has-associated-control  */}
             <label
               className="todo__status-label"
               htmlFor={`temp-todo-status-${tempTodo.id}`}
             >
               <input
-                onChange={() => {handleTodoCompleteChange(tempTodo.id, !tempTodo.completed)}}
+                onChange={() => {}}
                 data-cy="TodoStatus"
                 type="checkbox"
                 className="todo__status"
