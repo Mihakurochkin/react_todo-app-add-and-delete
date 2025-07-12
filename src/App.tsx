@@ -54,9 +54,9 @@ export const App: React.FC = () => {
   async function handleAddTodo() {
     const title = inputValue.trim();
 
-
     if (title.length === 0) {
-      setErrorAndTimeout('Title should not be empty')
+      setErrorAndTimeout('Title should not be empty');
+
       return;
     }
 
@@ -66,7 +66,7 @@ export const App: React.FC = () => {
       userId: USER_ID,
     };
 
-    setTempTodo({id: 0,...todoData});
+    setTempTodo({ id: 0, ...todoData });
 
     try {
       const newTodo = await addTodo(todoData);

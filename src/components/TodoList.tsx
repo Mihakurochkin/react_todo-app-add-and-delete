@@ -1,6 +1,6 @@
-import { Todo } from "../types/Todo";
-import { FilterType } from "../types/FilterType";
-import { TodoItem } from "./TodoItem";
+import { Todo } from '../types/Todo';
+import { FilterType } from '../types/FilterType';
+import { TodoItem } from './TodoItem';
 
 type Props = {
   todos: Todo[];
@@ -19,7 +19,6 @@ export const TodoList: React.FC<Props> = ({
   onTodoRemove,
   filterType,
 }) => {
-
   function isTodoVisible(todo: Todo): boolean {
     switch (filterType) {
       case 'all':
@@ -33,9 +32,7 @@ export const TodoList: React.FC<Props> = ({
 
   return (
     <section className="todoapp__main" data-cy="TodoList">
-      {todos
-      .filter(isTodoVisible)
-      .map((todo: Todo) => {
+      {todos.filter(isTodoVisible).map((todo: Todo) => {
         return (
           <TodoItem
             todo={todo}
@@ -47,12 +44,14 @@ export const TodoList: React.FC<Props> = ({
         );
       })}
 
-      {tempTodo !== null && (<TodoItem
-        todo={tempTodo}
-        onTodoCompleteChange={onTodoCompleteChange}
-        onTodoRemove={onTodoRemove}
-        isLoading
-      />)}
+      {tempTodo !== null && (
+        <TodoItem
+          todo={tempTodo}
+          onTodoCompleteChange={onTodoCompleteChange}
+          onTodoRemove={onTodoRemove}
+          isLoading
+        />
+      )}
     </section>
   );
-}
+};

@@ -7,24 +7,17 @@ type Props = {
   isLoading: boolean;
   onTodoCompleteChange: (todoId: number, completed: boolean) => void;
   onTodoRemove: (todoId: number) => void;
-}
-
+};
 
 export const TodoItem: React.FC<Props> = ({
   todo,
   onTodoCompleteChange,
   onTodoRemove,
-  isLoading
+  isLoading,
 }) => {
-
   return (
-    <div
-      data-cy="Todo"
-      className={cn(
-        'todo',
-        todo.completed && 'completed',
-      )}
-    >
+    <div data-cy="Todo" className={cn('todo', todo.completed && 'completed')}>
+      {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
       <label className="todo__status-label">
         <input
           onClick={() => onTodoCompleteChange(todo.id, !todo.completed)}
@@ -35,10 +28,7 @@ export const TodoItem: React.FC<Props> = ({
         />
       </label>
 
-      <span
-        data-cy="TodoTitle"
-        className="todo__title"
-      >
+      <span data-cy="TodoTitle" className="todo__title">
         {todo.title}
       </span>
 
@@ -62,4 +52,4 @@ export const TodoItem: React.FC<Props> = ({
       </div>
     </div>
   );
-}
+};

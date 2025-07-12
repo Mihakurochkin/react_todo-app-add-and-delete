@@ -1,4 +1,4 @@
-import cn from "classnames";
+import cn from 'classnames';
 
 export const ErrorNotification: React.FC<{ message: string }> = ({
   message,

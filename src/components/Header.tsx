@@ -1,22 +1,22 @@
-import cn from "classnames";
-import { Todo } from "../types/Todo";
+import cn from 'classnames';
+import { Todo } from '../types/Todo';
 
 type Props = {
   todos: Todo[];
   inputDisabled: boolean;
   inputRef: React.RefObject<HTMLInputElement>;
-  onAddTodo: ( ) => void;
+  onAddTodo: () => void;
   onInputChange: (value: string) => void;
   inputValue: string;
-}
+};
 
 export const Header: React.FC<Props> = ({
-  todos, 
+  todos,
   inputDisabled,
   onAddTodo,
   inputRef,
   onInputChange,
-  inputValue
+  inputValue,
 }) => {
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -29,10 +29,7 @@ export const Header: React.FC<Props> = ({
       {todos.length !== 0 && (
         <button
           type="button"
-          className={cn(
-            'todoapp__toggle-all',
-            false && 'active',
-          )}
+          className={cn('todoapp__toggle-all', false && 'active')}
           data-cy="ToggleAllButton"
         />
       )}
@@ -52,4 +49,4 @@ export const Header: React.FC<Props> = ({
       </form>
     </header>
   );
-}
+};

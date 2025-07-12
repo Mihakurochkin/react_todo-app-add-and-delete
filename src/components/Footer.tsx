@@ -1,23 +1,26 @@
-import { FilterType } from "../types/FilterType";
-import { Todo } from "../types/Todo";
-import cn from "classnames";
-
+import { FilterType } from '../types/FilterType';
+import { Todo } from '../types/Todo';
+import cn from 'classnames';
 
 type Props = {
   todos: Todo[];
-  filterType: FilterType
-  onFilterTypeChange: (filterType: FilterType) => void
-  onTodoRemove: (todoId: number) => void
-}
+  filterType: FilterType;
+  onFilterTypeChange: (filterType: FilterType) => void;
+  onTodoRemove: (todoId: number) => void;
+};
 
-export const Footer: React.FC<Props> = ({ todos, filterType, onFilterTypeChange, onTodoRemove }) => {
+export const Footer: React.FC<Props> = ({
+  todos,
+  filterType,
+  onFilterTypeChange,
+  onTodoRemove,
+}) => {
   function handleRemoveAllCompletedTodos() {
     todos
       .filter(todo => todo.completed)
       .map(todo => todo.id)
       .forEach(onTodoRemove);
   }
-
 
   return (
     <footer className="todoapp__footer" data-cy="Footer">
@@ -28,10 +31,7 @@ export const Footer: React.FC<Props> = ({ todos, filterType, onFilterTypeChange,
       <nav className="filter" data-cy="Filter">
         <a
           href="#/"
-          className={cn(
-            'filter__link',
-            filterType === 'all' && 'selected',
-          )}
+          className={cn('filter__link', filterType === 'all' && 'selected')}
           data-cy="FilterLinkAll"
           onClick={() => {
             onFilterTypeChange('all');
@@ -42,10 +42,7 @@ export const Footer: React.FC<Props> = ({ todos, filterType, onFilterTypeChange,
 
         <a
           href="#/active"
-          className={cn(
-            'filter__link',
-            filterType === 'active' && 'selected',
-          )}
+          className={cn('filter__link', filterType === 'active' && 'selected')}
           data-cy="FilterLinkActive"
           onClick={() => {
             onFilterTypeChange('active');
@@ -80,4 +77,4 @@ export const Footer: React.FC<Props> = ({ todos, filterType, onFilterTypeChange,
       </button>
     </footer>
   );
-}
+};
